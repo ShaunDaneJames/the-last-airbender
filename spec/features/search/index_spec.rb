@@ -6,6 +6,7 @@ describe 'As a user' do
       visit '/search'
 
       expect(page).to have_content('Population: 20')
+      
     end
   end
 end

@@ -1,35 +1,20 @@
 class Avatar
-  attr_reader :population, :members
+  attr_reader :id, :allies, :enemies, :photourl, :name, :affiliation
 
-  def initialize(data)
-    @data = data
+  def initialize(member, avatar_list, photourl = nil)
+    @id = member['_id']
+    @allies = member['allies']
+    @enemies = member['enemies']
+    @photourl = member['photoUrl']
+    @name = member['name']
+    @affiliation = member['affiliation']
+    @avatars = avatar_list
+    @avatar = false
   end
 
-  def population
-    @data.count
-  end
-
-  # def name
-  #   @data
-  # end
-
-  def members
-    members = []
-    @data.each do |member|
-      member['name']
-      member['allies']
-      member['enemies']
-      member['affiliation']
-      member['photoUrl']
-
-      members << member = ({
-        name: member['name'],
-        allies: member['allies'],
-        enemies: member['enemies'],
-        affiliation: member['affiliation'],
-        photo: member['photoUrl']
-        })
+  def avatar?
+    @avatar = @avatars.any? do |avatar|
+      avatar[:name] == @name
     end
-    members
   end
 end

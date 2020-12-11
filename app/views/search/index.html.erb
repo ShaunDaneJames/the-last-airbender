@@ -1,12 +1,13 @@
 <h1>Search index</h1>
 
-<h3>Population: <%= @affiliation_data.population %></h3>
-<h3>Members: <% @affiliation_data.members.each do |member|%> </h3>
+<h3>Population: <%= @affiliation_data.count %></h3>
+<h3>Members: <% @affiliation_data.each do |member|%> </h3>
     <p>
-    Name: <%= member[:name] %> <br>
-    Allies: <%= member[:allies] %> <br>
-    Enemies: <%= member[:enemies] %> <br>
-    Affiliation: <%= member[:affiliation] %> <br>
-    Photo: <%= image_tag member[:photo] if member[:photo]%>
+    Name: <%= member.name %> <br>
+    Allies: <%= member.allies %> <br>
+    Enemies: <%= member.enemies %> <br>
+    Affiliation: <%= member.affiliation %> <br>
+    Photo: <%= image_tag member.photourl if member.photourl%> <br>
+    Avatar: <%= member.avatar? %>
     </p>
   <% end %>
