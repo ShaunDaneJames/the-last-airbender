@@ -5,7 +5,7 @@ describe 'As a user' do
     it 'I see the total number of people who live in the Fire Nation' do
       visit '/search'
 
-      expect(page).to have_content('population: 20')
+      expect(page).to have_content('Population: 20')
     end
   end
 end

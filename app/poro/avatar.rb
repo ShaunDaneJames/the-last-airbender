@@ -9,6 +9,10 @@ class Avatar
     @data.count
   end
 
+  # def name
+  #   @data
+  # end
+
   def members
     members = []
     @data.each do |member|
